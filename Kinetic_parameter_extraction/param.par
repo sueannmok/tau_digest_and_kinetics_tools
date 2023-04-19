@@ -1,0 +1,87 @@
+# Non linear fitting
+with g0
+fit formula "y = a0 + a1*exp(-exp((a2-x)/a3))"
+fit with 4 parameters
+fit prec 0.01
+a0 = 0
+a0 constraints on
+a0min = -10
+a0max = 5
+a1 = 500
+a1 constraints off
+a1min = 50
+a1max = 1000
+a2 = 3
+a2 constraints on
+a2min = 0
+a2max = 20
+a3 = 1
+a3 constraints on
+a3min = 0
+a3max = 20
+
+#fit with 4 parameters
+#fit prec 0.01
+#a0 = 0
+#a0 constraints on
+#a0min = 0
+#a0max = 23
+#a1 = -352.973
+#a1 constraints off
+#a1min = -1000
+#a1max = -1
+#a2 = 16.7837
+#a2 constraints off
+#a2min = 2
+#a2max = 10
+#a3 = 2.97955
+#a3 constraints off
+#a3min = 2
+#a3max = 10
+
+nonlfit(s0,1/Y,200)
+copy s0 to s1
+s1 on
+s1 line color 2
+s1 line linewidth 1.5
+s1 length 10000
+s1.x = mesh(0, 24, 10000)
+s1.y = a0 + a1*exp(-exp((a2-x)/a3))
+
+# graph settings
+yaxis label "Tht Fluorescence Intensity (RFU)"
+yaxis  ticklabel format general
+yaxis  ticklabel prec 0
+xaxis label "Time (hours)"
+AUTOSCALE
+
+# print parameter fit
+with g2
+g2 on
+view xmin 0.90
+view xmax 1.10
+view ymin 0.25
+view ymax 0.30
+frame linestyle 0
+xaxis bar off
+xaxis tick off
+xaxis ticklabel off
+yaxis bar off
+yaxis tick off
+yaxis ticklabel off
+#subtitle "K\-\-\v{-0.2}cat \N/K\-\-\v{-0.2}m\N (M\-\-\v{+0.4}-1 \Ns\-\-\v{+0.4}-1\N)"
+#subtitle "k\-\-\v{-0.2}app"
+subtitle "Lag time (hours):"
+#s2 avalue format scientific
+s2 avalue format decimal
+#s2 avalue format general
+s2 avalue prec 1
+#s2 avalue prec 2
+s2 type xyz
+s2 on
+s2 length 1
+s2 avalue on
+s2.y = 1
+s2.y[0] = a2-a3
+s2.y1[0] = a2-a3
+autoscale

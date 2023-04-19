@@ -1,0 +1,10 @@
+#! /bin/bash
+# Olivier Julien, 2014
+# ----------------------------
+cd /usr/local/bin
+sudo ln "/usr/bin/env python3 /System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" PDFconcat
+PDFconcat -o all.pdf pdf/*.pdf
+#/usr/bin/env python3 /System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py -o all.pdf pdf/*.pdf
+
+
+#/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" -o PATH/TO/YOUR/MERGED/FILE.pdf /PATH/TO/ORIGINAL/1.pdf /PATH/TO/ANOTHER/2.pdf /PATH/TO/A/WHOLE/DIR/*.pdf
