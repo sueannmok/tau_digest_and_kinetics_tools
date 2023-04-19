@@ -1,0 +1,5 @@
+#! /bin/bash
+# Olivier Julien, 2014
+# ----------------------------
+
+/usr/bin/python3 /System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py -o all.pdf pdf/*

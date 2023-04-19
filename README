@@ -1,0 +1,26 @@
+Directory content:
+0-format-data.sh*       = format the data table (sample.txt) exported from the excel file (Windows Formatted text) and create data/
+1-fit-all.sh*           = use the files in data/ and fit the data using grace
+2-merge-pdfs*           = use a macosx python script to merge all the pdf into one (all.pdf)
+3-print-stats.sh
+
+all.pdf
+calculate-averages.pl*  = script used to extract and format data for grace (used in 0-format-data.sh)
+data/
+sample.txt
+sample.xlsx
+grace-gompertz.fit
+log.txt
+param.par
+pdf/
+
+--------
+To run, execute the scripts in order:
+
+1) export data from excel into a Windows Formatted text format 
+2) ./0-format-data.sh
+3) ./1-fit-all.sh
+or ./1-fit-all.sh > temp.txt to keep fitting statictics
+4) ./2-merge-pdfs
+5) ./3-print-stats.sh
+
