@@ -1,6 +1,5 @@
 #! /usr/bin/perl
 #
-# Olivier Julien, 2014
 
 open (file1, "$ARGV[0]") || die "Could not open input file";
 
