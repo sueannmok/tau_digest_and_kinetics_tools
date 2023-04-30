@@ -1,5 +1,4 @@
 #! /bin/bash
-# Olivier Julien, 2014
 # ----------------------------
 
 #\rm -r png; mkdir png;
